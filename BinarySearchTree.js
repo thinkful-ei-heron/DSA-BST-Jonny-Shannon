@@ -1,4 +1,3 @@
-
 class BinarySearchTree {
   constructor(key = null, value = null, parent = null) {
     this.key = key;
@@ -187,6 +186,9 @@ main();
 //  otherwise, it recursively calls itself 
 // and adds to the value of each node in every branch.
 // it goes down both the left and right branches.
+// the runtime would be o(n) because it must go through every node
+// in the tree.
+
 // if we pass in our new numbers tree (with key and value both equalling
 // the number) then we should get back a result of 37 (prior to removing the root).
 // as the function will add each value together.
