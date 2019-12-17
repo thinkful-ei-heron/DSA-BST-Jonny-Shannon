@@ -155,7 +155,8 @@ newNumbersTree.insert(5,5);
 newNumbersTree.insert(7,7);
 //newNumbersTree.remove(3,3);
 //console.log(newNumbersTree);
-console.log(tree(newNumbersTree));
+//console.log(tree(newNumbersTree));
+console.log(findHeight(newNumbersTree));
 
   let newEasyQuestionTree = new BinarySearchTree();
   newEasyQuestionTree.insert('E');
@@ -170,8 +171,9 @@ console.log(tree(newNumbersTree));
   newEasyQuestionTree.insert('I');
   newEasyQuestionTree.insert('O');
   newEasyQuestionTree.insert('N');
-  newEasyQuestionTree.remove('E');
+  //newEasyQuestionTree.remove('E');
   //console.log(newEasyQuestionTree.right.left);
+  console.log(findHeight(newEasyQuestionTree));
 }
 
 
@@ -199,3 +201,22 @@ function tree(t){
   }
   return tree(t.left) + t.value + tree(t.right);
 }
+
+function findHeight(tree, tempHeight=0, maxHeight=[0]){
+  if(!tree.left && !tree.right) {
+    if(tempHeight > maxHeight[0]){
+      maxHeight[0] = tempHeight;
+      tempHeight = 0;
+    }
+  }
+  if(tree.left){
+    tempHeight += 1;
+    findHeight(tree.left, tempHeight, maxHeight);
+  }
+  if(tree.right){
+    tempHeight += 1;
+    findHeight(tree.right, tempHeight, maxHeight);
+  }
+  return maxHeight;
+}
+
